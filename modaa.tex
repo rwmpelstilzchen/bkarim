@@ -1,0 +1,111 @@
+\documentclass[12pt]{article}
+\usepackage[a4paper, left=0.2cm, right=0.2cm, top=1cm, bottom=1cm]{geometry}
+\pagestyle{empty}
+
+\usepackage{setspace}
+\setlength\parskip{0pt}
+\setlength\parindent{0pt}
+
+\usepackage{graphicx, xcolor, wallpaper}
+\usepackage{tikz}
+\usetikzlibrary{arrows, decorations.markings, positioning}
+\definecolor{cevaA}{HTML}{8B6639}
+\definecolor{cevaB}{HTML}{029044}
+\definecolor{daf}{HTML}{C0DA91}
+
+%\pagecolor{cevaA}
+\pagecolor{daf}
+\color{cevaA}
+
+%\usepackage{eso-pic}
+%\newcommand\BackgroundPic{
+%\put(0,0){
+%\parbox[b][\paperheight]{\paperwidth}{%
+%\vfill
+%\centering
+%\includegraphics[width=\paperwidth,height=\paperheight]{nijar.jpg}%
+%\vfill
+%}}}
+
+\usepackage{fontspec}
+\usepackage[RTLdocument]{bidi}
+\setmainfont[Script=Hebrew,
+	AutoFakeSlant=-0.15,
+	BoldFont={Rutz_OE Bold Pro}]
+	{Rutz_OE Regular Pro}
+	\setmonofont[Scale=0.8]{PragmataPro}
+\newcommand{\hl}[1]{\textbf{\addfontfeature{Color=cevaB}#1}}
+\renewcommand{\L}[1]{\LR{\fontspec{Vesper Pro}#1}}
+\newcommand{\entypo}[1]{{\fontspec{Entypo}#1}}
+\newcommand{\symbolglyph}[1]{{\fontspec[Color=cevaB]{Symbola}#1}}
+\usepackage{url}
+
+% for double arrows a la chef
+% adapt line thickness and line width, if needed
+%\tikzstyle{vecArrow} = [thick, decoration={markings,mark=at position 1 with {\arrow[semithick]{open triangle 60}}},
+%   double distance=1.4pt, shorten >= 5.5pt,
+%   preaction = {decorate},
+%   postaction = {draw,line width=1.4pt, white,shorten >= 4.5pt}]
+\tikzstyle{vecArrow} = [
+	line width = 8pt,
+	decoration={markings, mark = at position 1 with {\arrow[line width=5pt, color = cevaA!50!cevaB]{triangle 60}}},
+	shorten >= 5.5pt,
+	color = cevaA!50!cevaB,
+	preaction = {decorate}
+]
+
+
+
+\begin{document}
+\TileWallPaper{20pt}{20pt}{nekuda.eps} % By Mauricio Duque <http://www.snap2objects.com/2009/05/free-clothing-vector-silhouettes/>
+%\AddToShipoutPicture{\BackgroundPic}
+
+\begin{center}
+\color{cevaA}
+\fontsize{30}{36}\selectfont
+
+\begin{tikzpicture}[thick]
+	\node (a) {\parbox{15cm}{\centering\setRL\color{cevaA} בחינוך ביתי ומחפשים \hl{חֶבְרָה}?}};
+	\node [below = 0.0cm of a] (b) {\parbox{15cm}{\centering\setRL\color{cevaA} רוצים להפגש עם משפחות\\
+	נוספות עם ילדים \hl{בשעות הבוקר}?}};
+	\node [inner sep=0,minimum size=0,right = of a] (x) {}; % invisible node
+	\node [inner sep=0,minimum size=0,left = of b] (y) {}; % invisible node
+	%\draw [vecArrow] (a) to (x);
+	\draw [vecArrow] (a) |- (x) |- (b);
+	\draw [vecArrow] (b) to (y) |- (a);
+	%\draw [->] (y) |- (a);
+\end{tikzpicture}
+
+\vfill
+
+\vspace{-1cm}
+{\fontsize{50}{60}\selectfont
+\textbf{\textcolor{cevaA}{אתם מוזמנים להצטרף}}\\
+{\fontspec[Script=Hebrew]{HPLJPM+AlenbiSerif}\fontsize{75}{90}\selectfont \textcolor{cevaA}{ל}\textcolor{cevaB}{מפגשים קבועים}}\\
+\vspace{-0.2em}\textbf{ורב־גילאיים \hl{בבקרים} של ימי}\\
+\vspace{0.1em}\textbf{ראשון ורביעי \hl{באיזור}}
+}
+
+\vfill
+
+כל הפרטים, בדף שלנו ב\hl{אינטרנט}:
+
+
+\includegraphics[width=0.20\textwidth]{qr-bkarim.png}\\
+\vspace{-0.5cm}\url{tiny.cc/bkarim}
+
+\vfill
+
+לפרטים ב\hl{טלפון} או ב\hl{דואל}\\אפשר לפנות אל יודה רונן:
+
+\vspace{0.5cm}
+\begin{LTR}
+\begin{tabular}{cc}
+	\symbolglyph{☏} & 02-6419913\\
+	\symbolglyph{📱} & 054-6509361\\
+	\symbolglyph{@} & {\url{foo@digitalwords.net}}
+\end{tabular}
+\end{LTR}
+
+\end{center}
+\end{document}
